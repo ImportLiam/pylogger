@@ -167,5 +167,5 @@ out.release()
 
 #Remove all windows
 cv2.destroyAllWindows()
-print('done')
+
 
